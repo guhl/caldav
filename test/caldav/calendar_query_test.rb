@@ -19,10 +19,10 @@ class CalendarQueryTest < Test::Unit::TestCase
   
   def test_build_xml_with_event
     query = CalDAV::CalendarQuery.new.event()
-    xml = REXML::Document.new(query.to_xml)
-    assert_kind_of REXML::Element, REXML::XPath.match(xml, "cal:calendar-query/dav:prop/dav:getetag").first
-    assert_kind_of REXML::Element, REXML::XPath.match(xml, "cal:calendar-query/dav:prop/cal:calendar-data").first
-    assert !REXML::XPath.match(xml, "cal:calendar-query/cal:filter").first.elements.empty?
+    xml = Nokogiri::XML.parse(query.to_xml)
+    assert_kind_of Nokogiri::XML::Element, xml.search("./cal:calendar-query/dav:prop/dav:getetag", xml.root.namespaces).first
+    assert_kind_of Nokogiri::XML::Element, xml.search("./cal:calendar-query/dav:prop/cal:calendar-data", xml.root.namespaces).first    
+    assert !xml.search("/cal:calendar-query/cal:filter", xml.root.namespaces).empty?
   end
   
 end
