@@ -34,12 +34,10 @@ module Net
     
   private
 
-  def rbuf_fill
-    timeout(@read_timeout) {
-      @rbuf << @response.sysread(1024)
-    }
-  end
-    
-    
+    def rbuf_fill
+      timeout(@read_timeout) {
+        @rbuf << @response.sysread(1024)
+      }
+    end    
   end
 end

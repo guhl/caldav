@@ -6,7 +6,7 @@ require 'test/unit'
 require 'breakpoint'
 require 'caldav'
 require 'mocha'
-require 'stubba'
+require 'webrat'
 
 class Test::Unit::TestCase
   
