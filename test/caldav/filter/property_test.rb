@@ -18,9 +18,8 @@ class PropertyTest < Test::Unit::TestCase
   end
   
   def test_build_xml
-    xml = REXML::Document.new(@filter.to_xml)
-    result = REXML::XPath.match( xml, "cal:prop-filter[@name='property-name']/cal:text-match").first
-    assert_kind_of REXML::Element, result
+    xml = Nokogiri::XML.parse(@filter.to_xml)
+    result = xml.search("//prop-filter[@name='property-name']/text-match").first
     assert_equal 'property-value', result.text
   end
 end
