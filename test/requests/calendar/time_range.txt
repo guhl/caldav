@@ -1,7 +1,8 @@
 REPORT /calendars/users/admin/newcal/ HTTP/1.1
 Accept: */*
+Content-Type: application/x-www-form-urlencoded
 Authorization: Basic YWRtaW46cGFzc3dvcmQ=
-Content-Length: 442
+Content-Length: 440
 Host: example.com
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -13,7 +14,7 @@ Host: example.com
   <cal:filter>
     <cal:comp-filter name="VCALENDAR">
       <cal:comp-filter name="VEVENT">
-        <cal:time-range start="20060102T000000Z" end="20060103T000000Z"/>
+        <cal:time-range end="20060103T000000" start="20060102T000000"/>
       </cal:comp-filter>
     </cal:comp-filter>
   </cal:filter>

@@ -33,7 +33,6 @@ module CalDAV
       perform_request Net::HTTP::Delete
     end
     
-    
     def properties
       perform_request Net::HTTP::Propfind
     end

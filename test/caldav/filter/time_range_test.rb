@@ -14,7 +14,7 @@ class TimeRangeTest < Test::Unit::TestCase
   
   def test_to_xml
     # FIXME: parse XML and compare using xpath
-    assert_match /^<\w*:time\-range start="#{@start.to_ical}" end="#{@end.to_ical}"\/>$/, @filter.to_xml.chomp
+    assert_match /^<\w*:time\-range end="#{@end.to_ical}" start="#{@start.to_ical}"\/>$/, @filter.to_xml.chomp
   end
   
 end

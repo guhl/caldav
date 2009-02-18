@@ -10,8 +10,8 @@ module CalDAV
       
       def build_xml(xml)
         xml.tag! "cal:time-range",
-          :start => range.begin.to_ical(true),
-          :end => range.end.to_ical(true)
+          :start => range.begin.to_ical,
+          :end => range.end.to_ical
       end
     end
   end
