@@ -55,16 +55,16 @@ module CalDAV
       
       events = []
       
-      body = REXML::Document.new(response.body)
-      body.root.add_namespace 'dav', 'DAV:'
-      body.root.add_namespace 'caldav', 'urn:ietf:params:xml:ns:caldav'
-
-      body.elements.each("dav:multistatus/dav:response") do |element|
-        calendar = Icalendar::Parser.new(element.elements["dav:propstat/dav:prop/caldav:calendar-data"].text).parse.first
+      body = Nokogiri::XML.parse(response.body)
+      namespaces = { 'dav' => "DAV:", 'caldav' => 'urn:ietf:params:xml:ns:caldav' }
+      
+      body.search("./dav:multistatus/dav:response", namespaces).each do |element|
+        calendar_data = element.search("./dav:propstat/dav:prop/caldav:calendar-data", namespaces)
+        calendar = Icalendar::Parser.new(calendar_data.text).parse.first
         calendar.events.each do |event|
           event.caldav = {
-            :etag => element.elements["dav:propstat/dav:prop/dav:getetag"].text, 
-            :href => element.elements["dav:href"].text
+            :etag => element.search("dav:propstat/dav:prop/dav:getetag", namespaces).text, 
+            :href => element.search("dav:href", namespaces).text
           }
         events += calendar.events
         end

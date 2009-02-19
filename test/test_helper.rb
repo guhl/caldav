@@ -31,7 +31,7 @@ private
   def assert_request_body(path, request)
     file = File.read(File.join(File.dirname(__FILE__), 'requests', *path ))
     assert_not_nil request
-    assert_equal REXML::Document.new(file, :compress_whitespace => :all, :ignore_whitespace_nodes => :all).to_s, REXML::Document.new(request, :compress_whitespace => :all, :ignore_whitespace_nodes => :all).to_s
+    assert_equal Nokogiri::XML(file.gsub!("\n", '').gsub!(' ', '')).to_xml, Nokogiri::XML(request.gsub!("\n", '').gsub!(' ', '')).to_xml
   end
   
   def assert_accessor(object, *methods)
@@ -42,8 +42,7 @@ private
       object.send("#{method}=", value || 'test') 
       assert_equal(value || 'test', object.send(method))
       assert_not_equal original_value, object.send(method)
-    end
-    
+    end 
   end
   
 end

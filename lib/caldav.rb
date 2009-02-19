@@ -6,6 +6,7 @@ require 'tzinfo'
 require 'net/http'
 require 'extensions/net/http'
 require 'extensions/icalendar/event'
+require 'nokogiri'
 
 Dir[File.join(File.dirname(__FILE__), 'caldav/**/*.rb')].sort.each { |lib| require lib }
 

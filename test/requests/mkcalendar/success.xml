@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cal:mkcalendar xmlns:dav="DAV:"
              xmlns:cal="urn:ietf:params:xml:ns:caldav">
- <dav:set>
-   <dav:prop>
-     <dav:displayname>Lisa's Events</dav:displayname>
-     <cal:calendar-description xml:lang="en"
->Calendar restricted to events.</cal:calendar-description>
-     <cal:supported-calendar-component-set>
-       <cal:comp name="VEVENT"/>
-     </cal:supported-calendar-component-set>
-     <cal:calendar-timezone><![CDATA[BEGIN:VCALENDAR
+  <dav:set>
+    <dav:prop>
+      <dav:displayname>Lisa's Events</dav:displayname>
+      <cal:calendar-description xml:lang="en">Calendar restricted to events.</cal:calendar-description>
+      <cal:supported-calendar-component-set>
+        <cal:comp name="VEVENT"/>
+      </cal:supported-calendar-component-set>
+      <cal:calendar-timezone><![CDATA[BEGIN:VCALENDAR
 PRODID:-//Example Corp.//CalDAV Client//EN
 VERSION:2.0
 BEGIN:VTIMEZONE
@@ -32,6 +31,6 @@ END:DAYLIGHT
 END:VTIMEZONE
 END:VCALENDAR
 ]]></cal:calendar-timezone>
-   </dav:prop>
- </dav:set>
+    </dav:prop>
+  </dav:set>
 </cal:mkcalendar>
