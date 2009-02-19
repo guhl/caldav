@@ -9,9 +9,8 @@ module CalDAV
       end
 
       def to_xml(xml = Builder::XmlMarkup.new(:indent => 2))
-        namespaces = { "xmlns:dav" => 'DAV:', "xmlns:cal" => "urn:ietf:params:xml:ns:caldav" }
         xml.instruct!
-        xml.cal :mkcalendar, namespaces do
+        xml.cal :mkcalendar, CalDAV::NAMESPACES do
           xml.dav :set do
             xml.dav :prop do
               xml.dav :displayname, displayname unless displayname.blank?
