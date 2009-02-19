@@ -31,7 +31,7 @@ private
   def assert_request_body(path, request)
     file = File.read(File.join(File.dirname(__FILE__), 'requests', *path ))
     assert_not_nil request
-    assert_equal Nokogiri::XML(file.gsub!("\n", '').gsub!(' ', '')).to_xml, Nokogiri::XML(request.gsub!("\n", '').gsub!(' ', '')).to_xml
+    assert_equal Nokogiri::XML(file).to_xml.strip!, Nokogiri::XML(request).to_xml.strip!
   end
   
   def assert_accessor(object, *methods)
@@ -45,4 +45,17 @@ private
     end 
   end
   
+end
+
+# Reference: http://www.vitarara.org/cms/hpricot_to_nokogiri_day_1
+class String
+  def strip
+    self.gsub(/^[\302\240|\s]*|[\302\240|\s]*$/, '')
+  end
+  
+  def strip!
+    before = self.reverse.reverse
+    self.gsub!(/^[\302\240|\s]*|[\302\240|\s]*$/, '')
+    before == self ? nil : self
+  end
 end
