@@ -39,7 +39,7 @@ module CalDAV
     
     def add_event(calendar)
       request = Net::HTTP::Put.new("#{uri.path}/#{calendar.events.first.uid}.ics")
-      request.add_field "If-None-Match", "*"
+      request.add_field "If-None-Match", "*" # RFC4791 5.3.2
       request.body = calendar.to_ical
       response = perform_request request
       raise CalDAV::Error.new(response.message, response) if response.code != '201'
@@ -47,7 +47,7 @@ module CalDAV
     end
     
     # TODO: check that supported-report-set includes REPORT
-    def events(param)
+    def events(param = nil)
       request = new_request Net::HTTP::Report do |request|
         request.body = CalendarQuery.new.event(param).to_xml
       end
@@ -88,7 +88,9 @@ module CalDAV
     
     def perform_request(request)
       request = new_request(request) if request.is_a? Class
-      Net::HTTP.start(uri.host, uri.port) do |http|
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.set_debug_output $stderr
+      http.start do |http|
         http.request prepare_request(request)
       end
     end
