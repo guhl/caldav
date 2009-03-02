@@ -1,0 +1,462 @@
+/calendars/users/admin/test5 > props
+
+        <-------- BEGIN HTTP CONNECTION -------->
+Server: localhost
+
+        <-------- BEGIN HTTP REQUEST -------->
+PROPFIND /calendars/users/admin/test5/ HTTP/1.1
+Host: localhost
+Authorization: Digest username="admin", realm="Test Realm", nonce="991986961767620286380218582", uri="/calendars/users/admin/test5/", response="4db0f1b42c075c83455d998861b56b53", algorithm="md5"
+Content-Length: 110
+Content-Type: text/xml; charset=utf-8
+Depth: 0
+
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:propfind xmlns:ns0="DAV:">
+  <ns0:propname />
+</ns0:propfind>
+
+        <-------- BEGIN HTTP RESPONSE -------->
+HTTP/1.1 401 Unauthorized
+Date: Thu, 19 Feb 2009 20:13:07 GMT
+Content-Length: 141
+Content-Type: text/html
+WWW-Authenticate: digest nonce="68785138619722741701888988801", realm="Test Realm", algorithm="md5"
+WWW-Authenticate: basic realm="Test Realm"
+Server: Twisted/2.5.0+rUnknown TwistedWeb/[twisted.web2, version 0.2.0 (SVN rUnknown)]
+<html><head><title>Unauthorized</title></head><body><h1>Unauthorized</h1><p>You are not authorized to access this resource.</p></body></html> 
+        <-------- END HTTP RESPONSE -------->
+
+        <-------- BEGIN HTTP REQUEST -------->
+PROPFIND /calendars/users/admin/test5/ HTTP/1.1
+Host: localhost
+Authorization: Digest username="admin", realm="Test Realm", nonce="68785138619722741701888988801", uri="/calendars/users/admin/test5/", response="ad22a6af505520e329632dfbb8a7db80", algorithm="md5"
+Content-Length: 110
+Content-Type: text/xml; charset=utf-8
+Depth: 0
+
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:propfind xmlns:ns0="DAV:">
+  <ns0:propname />
+</ns0:propfind>
+
+        <-------- BEGIN HTTP RESPONSE -------->
+HTTP/1.1 207 Multi-Status
+Content-Length: 1172
+Accept-Ranges: bytes
+Server: Twisted/2.5.0+rUnknown TwistedWeb/[twisted.web2, version 0.2.0 (SVN rUnknown)] TwistedCalDAV/?
+Last-Modified: Thu, 19 Feb 2009 18:56:53 GMT
+DAV: 1, access-control, calendar-access, calendar-schedule, calendar-auto-schedule, calendar-availability, inbox-availability, calendar-proxy, calendarserver-private-events, calendarserver-private-comments, calendarserver-principal-property-search
+ETag: "896FE3-88-499DAB75"
+Date: Thu, 19 Feb 2009 20:13:07 GMT
+Content-Type: text/xml
+<?xml version='1.0' encoding='UTF-8'?>
+<multistatus xmlns='DAV:'>
+  <response>
+    <href>/calendars/users/admin/test5/</href>
+    <propstat>
+      <prop>
+        <current-user-privilege-set/>
+        <quota-used-bytes/>
+        <supported-calendar-data xmlns='urn:ietf:params:xml:ns:caldav'/>
+        <getetag/>
+        <supported-calendar-component-set xmlns='urn:ietf:params:xml:ns:caldav'/>
+        <current-user-principal/>
+        <owner/>
+        <displayname/>
+        <inherited-acl-set/>
+        <getctag xmlns='http://calendarserver.org/ns/'/>
+        <getcontenttype/>
+        <supportedlock/>
+        <acl-restrictions/>
+        <resourcetype/>
+        <supported-report-set/>
+        <acl/>
+        <getcontentlength/>
+        <schedule-calendar-transp xmlns='urn:ietf:params:xml:ns:caldav'/>
+        <supported-privilege-set/>
+        <getlastmodified/>
+        <principal-collection-set/>
+        <creationdate/>
+        <resource-class xmlns='http://twistedmatrix.com/xml_namespace/dav/'/>
+        <quota-available-bytes/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
+</multistatus>
+
+        <-------- END HTTP RESPONSE -------->
+
+        <-------- END HTTP CONNECTION -------->
+
+        <-------- BEGIN HTTP CONNECTION -------->
+Server: localhost
+
+        <-------- BEGIN HTTP REQUEST -------->
+PROPFIND /calendars/users/admin/test5/ HTTP/1.1
+Host: localhost
+Authorization: Digest username="admin", realm="Test Realm", nonce="68785138619722741701888988801", uri="/calendars/users/admin/test5/", response="ad22a6af505520e329632dfbb8a7db80", algorithm="md5"
+Content-Length: 1072
+Content-Type: text/xml; charset=utf-8
+Depth: 0
+
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:propfind xmlns:ns0="DAV:">
+  <ns0:prop>
+    <ns0:displayname />
+    <ns0:supported-privilege-set />
+    <ns0:supportedlock />
+    <ns0:owner />
+    <ns0:getcontenttype />
+    <ns1:supported-calendar-data xmlns:ns1="urn:ietf:params:xml:ns:caldav" />
+    <ns0:acl />
+    <ns0:supported-report-set />
+    <ns0:creationdate />
+    <ns0:current-user-privilege-set />
+    <ns1:supported-calendar-component-set xmlns:ns1="urn:ietf:params:xml:ns:caldav" />
+    <ns0:quota-available-bytes />
+    <ns1:getctag xmlns:ns1="http://calendarserver.org/ns/" />
+    <ns1:resource-class xmlns:ns1="http://twistedmatrix.com/xml_namespace/dav/" />
+    <ns0:resourcetype />
+    <ns0:getetag />
+    <ns0:quota-used-bytes />
+    <ns0:principal-collection-set />
+    <ns0:getcontentlength />
+    <ns0:current-user-principal />
+    <ns0:acl-restrictions />
+    <ns1:schedule-calendar-transp xmlns:ns1="urn:ietf:params:xml:ns:caldav" />
+    <ns0:inherited-acl-set />
+    <ns0:getlastmodified />
+  </ns0:prop>
+</ns0:propfind>
+
+        <-------- BEGIN HTTP RESPONSE -------->
+HTTP/1.1 207 Multi-Status
+Content-Length: 9790
+Accept-Ranges: bytes
+Server: Twisted/2.5.0+rUnknown TwistedWeb/[twisted.web2, version 0.2.0 (SVN rUnknown)] TwistedCalDAV/?
+Last-Modified: Thu, 19 Feb 2009 18:56:53 GMT
+DAV: 1, access-control, calendar-access, calendar-schedule, calendar-auto-schedule, calendar-availability, inbox-availability, calendar-proxy, calendarserver-private-events, calendarserver-private-comments, calendarserver-principal-property-search
+ETag: "896FE3-88-499DAB75"
+Date: Thu, 19 Feb 2009 20:13:07 GMT
+Content-Type: text/xml
+<?xml version='1.0' encoding='UTF-8'?>
+<multistatus xmlns='DAV:'>
+  <response>
+    <href>/calendars/users/admin/test5/</href>
+    <propstat>
+      <prop>
+        <displayname>test5</displayname>
+        <supported-privilege-set>
+          <supported-privilege>
+            <privilege>
+              <all/>
+            </privilege>
+            <description xml:lang='en'>all privileges</description>
+            <supported-privilege>
+              <privilege>
+                <read/>
+              </privilege>
+              <description xml:lang='en'>read resource</description>
+              <supported-privilege>
+                <privilege>
+                  <read-free-busy xmlns='urn:ietf:params:xml:ns:caldav'/>
+                </privilege>
+                <description xml:lang='en'>allow free busy report query</description>
+              </supported-privilege>
+            </supported-privilege>
+            <supported-privilege>
+              <privilege>
+                <write/>
+              </privilege>
+              <description xml:lang='en'>write resource</description>
+              <supported-privilege>
+                <privilege>
+                  <write-properties/>
+                </privilege>
+                <description xml:lang='en'>write resource properties</description>
+              </supported-privilege>
+              <supported-privilege>
+                <privilege>
+                  <write-content/>
+                </privilege>
+                <description xml:lang='en'>write resource content</description>
+              </supported-privilege>
+              <supported-privilege>
+                <privilege>
+                  <bind/>
+                </privilege>
+                <description xml:lang='en'>add child resource</description>
+              </supported-privilege>
+              <supported-privilege>
+                <privilege>
+                  <unbind/>
+                </privilege>
+                <description xml:lang='en'>remove child resource</description>
+              </supported-privilege>
+            </supported-privilege>
+            <supported-privilege>
+              <privilege>
+                <unlock/>
+              </privilege>
+              <description xml:lang='en'>unlock resource without ownership of lock</description>
+            </supported-privilege>
+            <supported-privilege>
+              <privilege>
+                <read-acl/>
+              </privilege>
+              <description xml:lang='en'>read resource access control list</description>
+            </supported-privilege>
+            <supported-privilege>
+              <privilege>
+                <write-acl/>
+              </privilege>
+              <description xml:lang='en'>write resource access control list</description>
+            </supported-privilege>
+            <supported-privilege>
+              <privilege>
+                <read-current-user-privilege-set/>
+              </privilege>
+              <description xml:lang='en'>read privileges for current principal</description>
+            </supported-privilege>
+          </supported-privilege>
+        </supported-privilege-set>
+        <supportedlock>
+          <lockentry>
+            <lockscope>
+              <exclusive/>
+            </lockscope>
+            <locktype>
+              <write/>
+            </locktype>
+          </lockentry>
+          <lockentry>
+            <lockscope>
+              <shared/>
+            </lockscope>
+            <locktype>
+              <write/>
+            </locktype>
+          </lockentry>
+        </supportedlock>
+        <owner>
+          <href>/principals/__uids__/admin/</href>
+        </owner>
+        <getcontenttype>httpd/unix-directory</getcontenttype>
+        <supported-calendar-data xmlns='urn:ietf:params:xml:ns:caldav'>
+          <calendar-data version='2.0' content-type='text/calendar'/>
+        </supported-calendar-data>
+        <acl>
+          <ace>
+            <principal>
+              <href>/principals/__uids__/admin/</href>
+            </principal>
+            <grant>
+              <privilege>
+                <all/>
+              </privilege>
+            </grant>
+            <protected/>
+            <inherited>
+              <href>/calendars/users/admin/</href>
+            </inherited>
+          </ace>
+          <ace>
+            <principal>
+              <authenticated/>
+            </principal>
+            <grant>
+              <privilege>
+                <read-free-busy xmlns='urn:ietf:params:xml:ns:caldav'/>
+              </privilege>
+            </grant>
+            <inherited>
+              <href>/calendars/users/admin/</href>
+            </inherited>
+          </ace>
+          <ace>
+            <principal>
+              <href>/principals/__uids__/admin/</href>
+            </principal>
+            <grant>
+              <privilege>
+                <all/>
+              </privilege>
+            </grant>
+            <protected/>
+            <inherited>
+              <href>/calendars/users/admin/</href>
+            </inherited>
+          </ace>
+          <ace>
+            <principal>
+              <href>/principals/__uids__/admin/calendar-proxy-read/</href>
+            </principal>
+            <grant>
+              <privilege>
+                <read/>
+              </privilege>
+            </grant>
+            <protected/>
+            <inherited>
+              <href>/calendars/users/admin/</href>
+            </inherited>
+          </ace>
+          <ace>
+            <principal>
+              <href>/principals/__uids__/admin/calendar-proxy-write/</href>
+            </principal>
+            <grant>
+              <privilege>
+                <read/>
+              </privilege>
+              <privilege>
+                <write/>
+              </privilege>
+            </grant>
+            <protected/>
+            <inherited>
+              <href>/calendars/users/admin/</href>
+            </inherited>
+          </ace>
+        </acl>
+        <supported-report-set>
+          <supported-report>
+            <report>
+              <acl-principal-prop-set/>
+            </report>
+          </supported-report>
+          <supported-report>
+            <report>
+              <principal-match/>
+            </report>
+          </supported-report>
+          <supported-report>
+            <report>
+              <principal-property-search/>
+            </report>
+          </supported-report>
+          <supported-report>
+            <report>
+              <expand-property/>
+            </report>
+          </supported-report>
+          <supported-report>
+            <report>
+              <calendar-query xmlns='urn:ietf:params:xml:ns:caldav'/>
+            </report>
+          </supported-report>
+          <supported-report>
+            <report>
+              <calendar-multiget xmlns='urn:ietf:params:xml:ns:caldav'/>
+            </report>
+          </supported-report>
+          <supported-report>
+            <report>
+              <free-busy-query xmlns='urn:ietf:params:xml:ns:caldav'/>
+            </report>
+          </supported-report>
+        </supported-report-set>
+        <creationdate>2009-02-19T13:56:53Z</creationdate>
+        <current-user-privilege-set>
+          <privilege>
+            <all/>
+          </privilege>
+          <privilege>
+            <read/>
+          </privilege>
+          <privilege>
+            <read-free-busy xmlns='urn:ietf:params:xml:ns:caldav'/>
+          </privilege>
+          <privilege>
+            <write/>
+          </privilege>
+          <privilege>
+            <write-properties/>
+          </privilege>
+          <privilege>
+            <write-content/>
+          </privilege>
+          <privilege>
+            <bind/>
+          </privilege>
+          <privilege>
+            <unbind/>
+          </privilege>
+          <privilege>
+            <unlock/>
+          </privilege>
+          <privilege>
+            <read-acl/>
+          </privilege>
+          <privilege>
+            <write-acl/>
+          </privilege>
+          <privilege>
+            <read-current-user-privilege-set/>
+          </privilege>
+        </current-user-privilege-set>
+        <supported-calendar-component-set xmlns='urn:ietf:params:xml:ns:caldav'>
+          <comp name='VEVENT'/>
+          <comp name='VTODO'/>
+          <comp name='VTIMEZONE'/>
+          <comp name='VJOURNAL'/>
+          <comp name='VFREEBUSY'/>
+        </supported-calendar-component-set>
+        <quota-available-bytes>104855513</quota-available-bytes>
+        <getctag xmlns='http://calendarserver.org/ns/'>2009-02-19 13:56:53.556105</getctag>
+        <resource-class xmlns='http://twistedmatrix.com/xml_namespace/dav/'>CalDAVFile</resource-class>
+        <resourcetype>
+          <collection/>
+          <calendar xmlns='urn:ietf:params:xml:ns:caldav'/>
+        </resourcetype>
+        <getetag>"896FE3-88-499DAB75"</getetag>
+        <quota-used-bytes>2087</quota-used-bytes>
+        <principal-collection-set>
+          <href>/principals/</href>
+        </principal-collection-set>
+        <getcontentlength/>
+        <current-user-principal>
+          <href>/principals/__uids__/admin/</href>
+        </current-user-principal>
+        <acl-restrictions/>
+        <schedule-calendar-transp xmlns='urn:ietf:params:xml:ns:caldav'>
+          <transparent/>
+        </schedule-calendar-transp>
+        <inherited-acl-set/>
+        <getlastmodified>Thu, 19 Feb 2009 13:56:53 GMT</getlastmodified>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
+</multistatus>
+
+        <-------- END HTTP RESPONSE -------->
+
+        <-------- END HTTP CONNECTION -------->
+OK Properties:
+    {DAV:}acl: <Element {DAV:}acl at 55efd0>
+    {DAV:}acl-restrictions: <Element {DAV:}acl-restrictions at 2ed198>
+    {DAV:}creationdate: 2009-02-19T13:56:53Z
+    {DAV:}current-user-principal: <Element {DAV:}current-user-principal at 2ed080>
+    {DAV:}current-user-privilege-set: <Element {DAV:}current-user-privilege-set at 57fdc8>
+    {DAV:}displayname: test5
+    {DAV:}getcontentlength: 
+    {DAV:}getcontenttype: httpd/unix-directory
+    {DAV:}getetag: "896FE3-88-499DAB75"
+    {DAV:}getlastmodified: Thu, 19 Feb 2009 13:56:53 GMT
+    {DAV:}inherited-acl-set: <Element {DAV:}inherited-acl-set at 2ed328>
+    {DAV:}owner: <Element {DAV:}owner at 55e198>
+    {DAV:}principal-collection-set: URL: /principals/
+    {DAV:}quota-available-bytes: <Element {DAV:}quota-available-bytes at 5a0030>
+    {DAV:}quota-used-bytes: <Element {DAV:}quota-used-bytes at 5a0ad0>
+    {DAV:}resourcetype: <Element {DAV:}resourcetype at 5a04e0>
+    {DAV:}supported-privilege-set: <Element {DAV:}supported-privilege-set at 2e36e8>
+    {DAV:}supported-report-set: <Element {DAV:}supported-report-set at 599f08>
+    {DAV:}supportedlock: <Element {DAV:}supportedlock at 2ea940>
+    {http://calendarserver.org/ns/}getctag: <Element {http://calendarserver.org/ns/}getctag at 5a0210>
+    {http://twistedmatrix.com/xml_namespace/dav/}resource-class: <Element {http://twistedmatrix.com/xml_namespace/dav/}resource-class at 5a0300>
+    {urn:ietf:params:xml:ns:caldav}schedule-calendar-transp: <Element {urn:ietf:params:xml:ns:caldav}schedule-calendar-transp at 2ed210>
+    {urn:ietf:params:xml:ns:caldav}supported-calendar-component-set: <Element {urn:ietf:params:xml:ns:caldav}supported-calendar-component-set at 5a0670>
+    {urn:ietf:params:xml:ns:caldav}supported-calendar-data: <Element {urn:ietf:params:xml:ns:caldav}supported-calendar-data at 55e5a8>
