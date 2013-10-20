@@ -19,11 +19,23 @@ module CalDAV
     #
     def self.create(uri, options = {})
       parsed_uri = URI.parse(uri)
-      response = Net::HTTP.start(parsed_uri.host, parsed_uri.port) do |http|
+      if parsed_uri.scheme == "http"
+        puts "scheme is http"
+        response = Net::HTTP.start(parsed_uri.host, parsed_uri.port) do |http|
+          request = Net::HTTP::Mkcalendar.new(parsed_uri.path)
+          request.body = CalDAV::Request::Mkcalendar.new(options[:displayname], options[:description]).to_xml
+          request.basic_auth options[:username], options[:password] unless options[:username].blank? && options[:password].blank?
+          http.request request
+        end
+      end
+      if parsed_uri.scheme == "https"
+        puts "scheme is http"
+	https = Net::HTTP.new(parsed_uri.host, parsed_uri.port)
+        https.use_ssl = true
         request = Net::HTTP::Mkcalendar.new(parsed_uri.path)
         request.body = CalDAV::Request::Mkcalendar.new(options[:displayname], options[:description]).to_xml
         request.basic_auth options[:username], options[:password] unless options[:username].blank? && options[:password].blank?
-        http.request request
+        https.request request
       end
       raise CalDAV::Error.new(response.message, response) if response.code != '201'
       self.new(uri, options)
@@ -88,12 +100,24 @@ module CalDAV
     
     def perform_request(request)
       request = new_request(request) if request.is_a? Class
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.set_debug_output $stderr
-      http.start do |http|
-        http.request prepare_request(request)
+      if uri.scheme == "http"
+        puts "scheme is http"
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.set_debug_output $stderr
+        http.start do |http|
+          http.request prepare_request(request)
+        end
+      end
+      if uri.scheme == "https"
+        puts "scheme is https"
+	https = Net::HTTP.new(uri.host, uri.port)
+        https.use_ssl = true
+        https.set_debug_output $stderr
+        https.start do |https|
+          https.request prepare_request(request)
+        end
       end
     end
-
   end
+
 end
